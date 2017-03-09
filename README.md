@@ -1,2 +1,2 @@
 # laravel-settings
-Simple Settings module for laravel application
+Simple Settings package for laravel application
