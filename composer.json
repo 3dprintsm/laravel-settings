@@ -12,7 +12,7 @@
       "email": "eng.saeed.matar@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "require": {
     "php": ">=5.6.4"
   }
