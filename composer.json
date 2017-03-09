@@ -12,6 +12,11 @@
       "email": "eng.saeed.matar@gmail.com"
     }
   ],
+  "autoload": {
+    "psr-4": {
+      "SMATAR\\Settings\\": "src/"
+    }
+  },
   "minimum-stability": "stable",
   "require": {
     "php": ">=5.6.4"
