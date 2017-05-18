@@ -8,6 +8,6 @@ class SettingsController extends Controller
 {
     public function index()
     {
-        return 'Welcome to Settings';
+        return view('settings::index');
     }
 }

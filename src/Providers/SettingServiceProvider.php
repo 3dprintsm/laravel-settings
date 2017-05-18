@@ -13,7 +13,13 @@ class SettingServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        include __DIR__ . '/../routes/web.php';
+        $path_to_views = '/../resources/views/settings';
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        $this->loadViewsFrom(__DIR__ . $path_to_views, 'settings');
+
+        $this->publishes([
+            __DIR__ . $path_to_views => resource_path('views/vendor/settings'),
+        ]);
     }
 
     /**
