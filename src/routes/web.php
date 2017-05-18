@@ -1,5 +1,3 @@
 <?php
 
-Route::get('settings', function () {
-    return 'Welcome to Settings';
-});
+Route::get('settings', 'SMATAR\Settings\Http\Controllers\SettingsController@index');
