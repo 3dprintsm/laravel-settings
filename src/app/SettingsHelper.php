@@ -20,7 +20,7 @@ class SettingsHelper
             $result = [];
 
             foreach ($settings->get() as $item) {
-                $result[$item->key_cd] = $item->value;
+                $result[$item->code] = $item->value;
             }
 
             return $result;
