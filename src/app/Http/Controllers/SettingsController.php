@@ -119,7 +119,7 @@ class SettingsController extends Controller
             case 'BOOLEAN':
             case 'NUMBER':
             case 'SELECT':
-                $setting->value = $request->value;
+                $setting->value = trim($request->value);
                 break;
             case 'FILE':
                 if ($request->hasFile('value')) {

@@ -20,19 +20,34 @@ class Setting extends Model
 
     public function getValueAttribute()
     {
-        if ($this->attributes['type'] == 'FILE') {
-            if (!empty($this->attributes['value'])) {
-                return config('settings.upload_path') . '/' . $this->attributes['value'];
-            }
+        $value = $this->attributes['value'];
+
+        switch ($this->attributes['type']) {
+            case 'FILE':
+                if (!empty($value)) {
+                    return config('settings.upload_path') . '/' . $value;
+                }
+                break;
+            case 'SELECT':
+                $values = json_decode($value, true);
+                if ($values) {
+                    return $values;
+                } else {
+                    return [];
+                }
+                break;
+            case 'BOOLEAN':
+                if ($value == 'true') {
+                    return true;
+                } else {
+                    return false;
+                }
+                break;
+            case 'NUMBER':
+                return floatval($value);
+                break;
         }
-        if ($this->attributes['type'] == 'SELECT') {
-            $values = json_decode($this->attributes['value'], true);
-            if ($values) {
-                return $values;
-            } else {
-                return [];
-            }
-        }
-        return $this->attributes['value'];
+
+        return $value;
     }
 }
