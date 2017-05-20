@@ -69,7 +69,7 @@
                                    value="{{ $search['value'] }}"/>
                         </th>
                         <th>
-                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                             <a href="{{ url(config('settings.route')) }}"
                                class="btn btn-warning"><i class="fa fa-eraser"></i></a>
                         </th>
@@ -113,7 +113,7 @@
                 <tfoot>
                 <tr>
                     <td colspan="5" class="text-right">
-                        {{ $settings->links() }}
+                        {{ $settings->appends(\Request::except('page'))->links() }}
                     </td>
                 </tr>
                 </tfoot>

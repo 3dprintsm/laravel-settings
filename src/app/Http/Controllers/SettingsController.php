@@ -39,29 +39,27 @@ class SettingsController extends Controller
 
         $settings = Setting::whereIn('hidden', $hidden);
 
-        $search = $request->search;
+        $search_query = $request->search;
 
-        if (!empty($search)) {
-            foreach ($search as $key => $value) {
+        $search = [
+            'code' => '',
+            'type' => '',
+            'label' => '',
+            'value' => '',
+        ];
+
+        if (!empty($search_query)) {
+            foreach ($search_query as $key => $value) {
                 if (!empty($value)) {
+                    $search[$key] = $value;
                     $settings->where($key, 'like', '%' . strip_tags(trim($value)) . '%');
                 }
             }
-            if (!isset($search['type'])) {
-                $search['type'] = '';
-            }
-        } else {
-            $search = [
-                'code' => '',
-                'type' => '',
-                'label' => '',
-                'value' => '',
-            ];
         }
 
         $types = $this->types;
 
-        $settings = $settings->paginate();
+        $settings = $settings->paginate(config('settings.per_page', 15));
 
         return view('settings::index')->with(compact('settings', 'search', 'types'));
     }
