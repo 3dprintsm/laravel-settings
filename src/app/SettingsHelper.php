@@ -15,7 +15,7 @@ class SettingsHelper
     {
         if (strpos($key, '*')) {
             $key = str_replace('*', '%', $key);
-            $settings = Setting::where('code', 'like', strtoupper($key));
+            $settings = Setting::where('code', 'like', $key);
 
             $result = [];
 
@@ -26,7 +26,7 @@ class SettingsHelper
             return $result;
         }
 
-        $setting = Setting::whereCode(strtoupper($key));
+        $setting = Setting::whereCode($key);
 
         $setting = $setting->first();
 
