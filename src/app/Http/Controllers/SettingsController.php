@@ -59,7 +59,7 @@ class SettingsController extends Controller
 
         $types = $this->types;
 
-        $settings = $settings->paginate(config('settings.per_page', 15));
+        $settings = $settings->paginate(config('settings.per_page', 10));
 
         return view('settings::index')->with(compact('settings', 'search', 'types'));
     }

@@ -78,7 +78,7 @@
                 </thead>
                 <tbody>
                 @forelse($settings as $setting)
-                    <tr id="tr_{{ $setting->id }}">
+                    <tr id="tr_{{ $setting->id }}" class="{{ $setting->hidden?'warning':'' }}">
                         <td>{{ $setting->code }}</td>
                         <td>{{ $setting->type }}</td>
                         <td>{{ $setting->label }}</td>
