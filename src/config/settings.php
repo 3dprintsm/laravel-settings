@@ -20,5 +20,7 @@ return [
     // valid mime types for settings of type file
     'mimes' => 'jpg,jpeg,png,txt,csv,pdf',
 
-    'per_page' => 10
+    'per_page' => 10,
+
+    'table' => 'settings'
 ];

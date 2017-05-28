@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Setting extends Model
 {
+    public function __construct(array $attributes = [])
+    {
+        $this->table = config('settings.table', 'settings');
+        parent::__construct($attributes);
+    }
+
     protected $guarded = ['id'];
 
     public function setCodeAttribute($value)

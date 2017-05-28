@@ -13,14 +13,12 @@ class CreateSettingsTable extends Migration
      */
     public function up()
     {
-//        Schema::dropIfExists('settings');
-
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create(config('settings.table', 'settings'), function (Blueprint $table) {
             $table->increments('id');
             $table->string('code')->unique()->index();
             $table->enum('type', ['BOOLEAN', 'NUMBER', 'DATE', 'TEXT', 'SELECT', 'FILE', 'TEXTAREA']);
             $table->string('label');
-            $table->text('value')->nullable();
+            $table->longText('value')->nullable();
             $table->boolean('hidden');
             $table->timestamps();
         });
@@ -33,6 +31,6 @@ class CreateSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists(config('settings.table', 'settings'));
     }
 }
