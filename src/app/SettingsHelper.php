@@ -11,7 +11,7 @@ class SettingsHelper
     {
     }
 
-    public function get($key = '')
+    public function get($key = '', $default = null)
     {
         if (strpos($key, '*')) {
             $key = str_replace('*', '%', $key);
@@ -23,6 +23,10 @@ class SettingsHelper
                 $result[$item->code] = $item->value;
             }
 
+            if (empty($result) && !is_null($default)) {
+                return $default;
+            }
+
             return $result;
         }
 
@@ -32,6 +36,8 @@ class SettingsHelper
 
         if ($setting) {
             return $setting->value;
+        } elseif (!is_null($default)) {
+            return $default;
         } else {
             return '';
         }

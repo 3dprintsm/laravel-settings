@@ -22,5 +22,6 @@ return [
 
     'per_page' => 10,
 
+    // settings package table name the default is `settings`
     'table' => 'settings'
 ];
