@@ -118,19 +118,14 @@ for example:
 ```php
 \Setting::get('MAIL_*');
 ```
-will return all settings with keys started with MAIL such as:
-
-MAIL_DRIVER=smtp
-
-MAIL_HOST=mailtrap.io
-
-MAIL_PORT=2525
-
-MAIL_USERNAME=null
-
-MAIL_PASSWORD=null
-
-MAIL_ENCRYPTION=null
+will return an array of all settings with keys started with MAIL such as:
+```
+[
+'MAIL_DRIVER' => 'smtp',
+'MAIL_HOST'   => 'mailtrap.io',
+'MAIL_PORT'   => '2525',
+]
+```
 
 ===================================
 
