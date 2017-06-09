@@ -104,4 +104,33 @@ your-domain/settings
 
 it will shows a list of all settings you have.
 
+in the code to get a setting value use the facade like that
+```php
+\Setting::get('SETTING_KEY');
+\Setting::get('SETTING_KEY', 'Default value if not exist');
+```
+for example:
+```php
+\Setting::get('SITE_TITLE', 'Laravel Settings');
+```
+also you can use astrisk to get group of settings.
+for example:
+```php
+\Setting::get('MAIL_*');
+```
+will return all settings with keys started with MAIL such as:
+
+MAIL_DRIVER=smtp
+
+MAIL_HOST=mailtrap.io
+
+MAIL_PORT=2525
+
+MAIL_USERNAME=null
+
+MAIL_PASSWORD=null
+
+MAIL_ENCRYPTION=null
+
+
 [http://settings.esolution-inc.com/](http://settings.esolution-inc.com/)
