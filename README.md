@@ -96,15 +96,16 @@ return [
 ];
 ```
 
-## Demo
+## How to use
 
 the default route for settings is
 
 your-domain/settings
 
-it will shows a list of all settings you have.
+it will shows a list of all settings you have and you can manage your settings from there.
 
 in the code to get a setting value use the facade like that
+
 ```php
 \Setting::get('SETTING_KEY');
 \Setting::get('SETTING_KEY', 'Default value if not exist');
@@ -113,6 +114,7 @@ for example:
 ```php
 \Setting::get('SITE_TITLE', 'Laravel Settings');
 ```
+
 also you can use astrisk to get group of settings.
 for example:
 ```php
@@ -126,8 +128,15 @@ will return an array of all settings with keys started with MAIL such as:
 'MAIL_PORT'   => '2525',
 ]
 ```
+in case of file type a full path will return:
+```
+config('settings.upload_path') . '/' . $value;
+```
+such as: 
 
-===================================
+uploads/settings/site_logo.png
+
+## demo
 
 the demo site:
 
