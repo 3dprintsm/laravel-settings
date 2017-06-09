@@ -58,6 +58,7 @@
 
             $('.datepicker').datepicker({
                 format: '{{ config('settings.date_format') }}',
+                orientation: "bottom auto"
             });
 
             if ($("#values-table").length > 0) {
