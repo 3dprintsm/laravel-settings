@@ -23,7 +23,6 @@ class SettingServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . $path_to_views => resource_path('views/vendor/settings'),
-            __DIR__ . $root . '/database/seeds' => database_path('seeds'),
             __DIR__ . $root . '/config/settings.php' => config_path('settings.php'),
         ]);
     }
