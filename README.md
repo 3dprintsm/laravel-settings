@@ -33,7 +33,7 @@ add your new provider to the providers array:
 ```
 'aliases' => [
 	// ...
-	'Setting' => \SMATAR\Settings\App\Facades\Setting::class
+	'Settings' => \SMATAR\Settings\App\Facades\Setting::class
     // ...
 ],
 ```
@@ -109,22 +109,22 @@ in the code to get a setting value use the facade like that
 Validate if the key exist:
 
 ```php
-\Setting::has('SETTING_KEY');
+\Settings::has('SETTING_KEY');
 ```
 
 ```php
-\Setting::get('SETTING_KEY');
-\Setting::get('SETTING_KEY', 'Default value if not exist');
+\Settings::get('SETTING_KEY');
+\Settings::get('SETTING_KEY', 'Default value if not exist');
 ```
 for example:
 ```php
-\Setting::get('SITE_TITLE', 'Laravel Settings');
+\Settings::get('SITE_TITLE', 'Laravel Settings');
 ```
 
 also you can use astrisk to get group of settings.
 for example:
 ```php
-\Setting::get('MAIL_*');
+\Settings::get('MAIL_*');
 ```
 will return an array of all settings with keys started with MAIL such as:
 ```
