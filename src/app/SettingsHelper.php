@@ -42,4 +42,14 @@ class SettingsHelper
             return '';
         }
     }
+
+    public function has($key)
+    {
+        if (strpos($key, '*')) {
+            $key = str_replace('*', '%', $key);
+            return (Setting::where('code', 'like', $key)->count() > 0);
+        }
+
+        return (Setting::whereCode($key)->count() > 0);
+    }
 }

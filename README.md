@@ -106,6 +106,12 @@ it will shows a list of all settings you have and you can manage your settings f
 
 in the code to get a setting value use the facade like that
 
+Validate if the key exist:
+
+```php
+\Setting::has('SETTING_KEY');
+```
+
 ```php
 \Setting::get('SETTING_KEY');
 \Setting::get('SETTING_KEY', 'Default value if not exist');

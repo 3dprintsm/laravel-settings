@@ -76,7 +76,7 @@ class SettingRequest extends FormRequest
                             if (empty($item['key']) || empty($item['value'])) {
                                 continue;
                             }
-                            $value[] = [$item['key'] => $item['value']];
+                            $value[$item['key']] = $item['value'];
                         }
                     }
                     if (empty($value)) {

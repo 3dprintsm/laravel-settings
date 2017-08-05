@@ -8,15 +8,15 @@
     </thead>
     <tbody>
     <?php $i = 0;?>
-    @foreach($setting->value as $value)
+    @foreach($setting->value as $key => $value)
         <tr id="tr_{{ $i }}" data-index="{{ $i }}">
             <td>
                 <input name="{{ $setting->code."[$i][key]" }}" type="text"
-                       value="{{ key($value) }}" class="form-control"/>
+                       value="{{ $key }}" class="form-control"/>
             </td>
             <td>
                 <input name="{{ $setting->code."[$i][value]" }}" type="text"
-                       value="{{ reset($value) }}" class="form-control"/>
+                       value="{{ $value }}" class="form-control"/>
             </td>
             <td>
                 <button type="button" class="btn btn-danger remove-value"
