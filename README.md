@@ -3,9 +3,9 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/smatar/laravel-settings.svg?style=flat-square)](https://packagist.org/packages/smatar/laravel-settings)
 [![Total Downloads](https://img.shields.io/packagist/dt/smatar/laravel-settings.svg?style=flat-square)](https://packagist.org/packages/smatar/laravel-settings)
 
-Supports laravel >= 5.2
-
 A Laravel package that provides laravel applications settings module which needed in every application.
+
+Supports laravel >= 5.2
 
 ## Installation
 
@@ -22,7 +22,7 @@ or run the following command:
 composer require smatar/laravel-settings
 ```
 
-2) config/app.php
+2) config/app.php [no need for this step in laravel 5.5 because of packages auto discovery feature]
 
 add your new provider to the providers array:
 
