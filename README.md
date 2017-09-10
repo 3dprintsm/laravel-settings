@@ -1,4 +1,10 @@
 # Laravel Settings
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/smatar/laravel-settings.svg?style=flat-square)](https://packagist.org/packages/smatar/laravel-settings)
+[![Total Downloads](https://img.shields.io/packagist/dt/smatar/laravel-settings.svg?style=flat-square)](https://packagist.org/packages/smatar/laravel-settings)
+
+Supports laravel >= 5.2
+
 A Laravel package that provides laravel applications settings module which needed in every application.
 
 ## Installation
