@@ -20,5 +20,15 @@
   "minimum-stability": "stable",
   "require": {
     "php": ">=5.6.4"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "SMATAR\\Settings\\App\\Providers\\SettingServiceProvider"
+      ],
+      "aliases": {
+        "Settings": "SMATAR\\Settings\\App\\Facades\\Setting"
+      }
+    }
   }
 }
