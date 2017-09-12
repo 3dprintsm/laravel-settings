@@ -8,7 +8,7 @@
     <meta name="description" content="laravel settings package">
     <meta name="author" content="SMATAR">
 
-    <title>Settings | {{ \Setting::get('SITE_TITLE', 'Laravel Settings') }}</title>
+    <title>Settings | {{ \Settings::get('SITE_TITLE', 'Laravel Settings') }}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://bootswatch.com/cerulean/bootstrap.css" rel="stylesheet">
