@@ -11,7 +11,7 @@
     <title>Settings | {{ \Settings::get('SITE_TITLE', 'Laravel Settings') }}</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="http://bootswatch.com/cerulean/bootstrap.css" rel="stylesheet">
+    <link href="http://bootswatch.com/3/cerulean/bootstrap.css" rel="stylesheet">
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
