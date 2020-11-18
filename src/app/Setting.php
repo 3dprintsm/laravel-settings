@@ -3,6 +3,7 @@
 namespace SMATAR\Settings\App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Setting extends Model
 {
@@ -16,7 +17,7 @@ class Setting extends Model
 
     public function setCodeAttribute($value)
     {
-        $this->attributes['code'] = str_slug($value, '_');
+        $this->attributes['code'] = Str::slug($value, '_');
     }
 
     public function getTypeAttribute()

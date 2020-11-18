@@ -82,7 +82,7 @@
                         <td>{{ $setting->code }}</td>
                         <td>{{ $setting->type }}</td>
                         <td>{{ $setting->label }}</td>
-                        <td>{{ str_limit($setting->getOriginal('value'),50) }}</td>
+                        <td>{{ Illuminate\Support\Str::limit($setting->getOriginal('value'),50) }}</td>
                         <td>
                             <a href="{{ url(config('settings.route') . '/' . $setting->id . '/edit') }}"
                                class="text-primary">
