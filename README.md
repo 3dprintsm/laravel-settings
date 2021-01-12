@@ -1,157 +1,66 @@
 # Laravel Settings
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/smatar/laravel-settings.svg?style=flat-square)](https://packagist.org/packages/smatar/laravel-settings)
-[![Total Downloads](https://img.shields.io/packagist/dt/smatar/laravel-settings.svg?style=flat-square)](https://packagist.org/packages/smatar/laravel-settings)
+Adds a settings page and provides a getter for runtime app variables stored in a DB table
 
-A Laravel package that provides laravel applications settings module which needed in every application.
+This is a fork of an abandoned project. Currently undergoes minimal maintenance for legacy reasons.
 
-Supports laravel >= 5.2
+Compatible with Laravel ^6.x
 
 ## Installation
 
-1) composer
+1) Composer
 
-Add the following to your composer file.
-
-`
-"smatar/laravel-settings": "dev-master"
-`
-
-or run the following command:
+Add this repository to your composer file:
 ```
-composer require smatar/laravel-settings
-```
-
-2) config/app.php [no need for this step in laravel 5.5 because of packages auto discovery feature]
-
-add your new provider to the providers array:
-
-```
-'providers' => [
-    // ...
-   	\SMATAR\Settings\App\Providers\SettingServiceProvider::class
-    // ...
-  ],
-```
-  
-  and add Setting class to the aliases array:
-  
-```
-'aliases' => [
-	// ...
-	'Settings' => \SMATAR\Settings\App\Facades\Setting::class
-    // ...
-],
+ "repositories": [
+        {
+            "url": "https://github.com/brandnewteam/laravel-settings.git",
+            "type": "git"
+        }
+    ]
 ```
 
-3) publish
+Require the latest release:
 
-run the following command:
-```
-php artisan vendor:publish
-```
-`config/settings.php` and `resources/vendor/settings` will be added to your laravel project.
+` "brandnewteam/laravel-settings": "v1.2" `
 
-4) migration
+2) Publication
 
-you can set table name in `config/settings.php`
-```
-return [
-	// ...
-	// settings package table name the default is `settings`
-    'table' => 'settings'
-    // ...
-];
-```
+`php artisan vendor:publish` will publish `config/settings.php` and `resources/vendor/settings` 
 
-the default table name is `settings`. then run the migration command
+3) Migration
 
-```
-php artisan migrate
-```
-settings table will be migrated to your Database.
+You can set the table name in `config/settings.php`, then migrate using `php artisan migrate`
 
-## Package Options
+4) Configuration
 
-after publishing the package new config file added `config/settings.php` update values as your business requirement:
-```
-return [
-    //settings route
-    'route' => 'settings',
+General settings for the package can be found in `config/settings.php`
 
-    'middleware' => ['web', 'auth'],
+## Usage
 
-    // hidden records not editable from interface when set to false
-    'show_hidden_records' => false,
+Web interface: 
 
-    //javascript format
-    'date_format' => 'mm/dd/yyyy',
-    // number of digits after the decimal point
-    'number_step' => 0.001,
+Access the module trough the route defined in `config/settings.php` to add and edit your settings
 
-    // upload path for settings of type file
-    'upload_path' => 'uploads/settings',
-
-    // valid mime types for settings of type file
-    'mimes' => 'jpg,jpeg,png,txt,csv,pdf',
-
-    'per_page' => 10,
-
-    // settings package table name the default is `settings`
-    'table' => 'settings'
-];
-```
-
-## How to use
-
-the default route for settings is
-
-your-domain/settings
-
-it will shows a list of all settings you have and you can manage your settings from there.
-
-in the code to get a setting value use the facade like that
-
-Validate if the key exist:
+Retrieving the values:
 
 ```php
-\Settings::has('SETTING_KEY');
-```
+/**
+ * States if a given setting key exists  
+ * @param string setting_key
+ * @return bool
+*/
+Settings::has('SETTING_KEY');
 
-```php
-\Settings::get('SETTING_KEY');
-\Settings::get('SETTING_KEY', 'Default value if not exist');
-```
-for example:
-```php
-\Settings::get('SITE_TITLE', 'Laravel Settings');
-```
+/**
+ * If the given key is found retrieves the value, returns the second argument as default, null if no value can be provided
+ * On wildcard * returns an array of matching values
+ * @param string setting_key
+ * @return string | null | array  
+*/
+Settings::get('SETTING_KEY');
 
-also you can use astrisk to get group of settings.
-for example:
-```php
-\Settings::get('MAIL_*');
-```
-will return an array of all settings with keys started with MAIL such as:
-```
-[
-'MAIL_DRIVER' => 'smtp',
-'MAIL_HOST'   => 'mailtrap.io',
-'MAIL_PORT'   => '2525',
-]
-```
-in case of file type a full path will return:
-```
-config('settings.upload_path') . '/' . $value;
-```
-such as: 
+Settings::get('SETTING_KEY', 'default');
 
-uploads/settings/site_logo.png
-
-## demo
-
-the demo site:
-
-[http://settings.esolution-inc.com/](http://settings.esolution-inc.com/)
-
-===================================
+Settings::get('SETTING_*');
+```
