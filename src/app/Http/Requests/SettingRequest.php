@@ -1,6 +1,6 @@
 <?php
 
-namespace SMATAR\Settings\App\Http\Requests;
+namespace brandnewteam\Settings\App\Http\Requests;
 
 
 use Illuminate\Foundation\Http\FormRequest;

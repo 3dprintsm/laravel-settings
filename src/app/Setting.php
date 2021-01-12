@@ -1,6 +1,6 @@
 <?php
 
-namespace SMATAR\Settings\App;
+namespace brandnewteam\Settings\App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;

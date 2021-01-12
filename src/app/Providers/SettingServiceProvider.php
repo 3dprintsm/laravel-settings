@@ -1,6 +1,6 @@
 <?php
 
-namespace SMATAR\Settings\App\Providers;
+namespace brandnewteam\Settings\App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

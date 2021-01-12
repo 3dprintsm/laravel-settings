@@ -1,6 +1,6 @@
 <?php
 
-namespace SMATAR\Settings\App;
+namespace brandnewteam\Settings\App;
 
 class SettingsHelper
 {

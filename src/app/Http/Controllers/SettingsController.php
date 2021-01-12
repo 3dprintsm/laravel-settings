@@ -1,12 +1,12 @@
 <?php
 
-namespace SMATAR\Settings\App\Http\Controllers;
+namespace brandnewteam\Settings\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use SMATAR\Settings\App\Http\Requests\SettingRequest;
-use SMATAR\Settings\App\Setting;
+use brandnewteam\Settings\App\Http\Requests\SettingRequest;
+use brandnewteam\Settings\App\Setting;
 
 class SettingsController extends Controller
 {
