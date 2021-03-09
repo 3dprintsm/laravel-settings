@@ -4,14 +4,12 @@ namespace brandnewteam\Settings\App;
 
 class SettingsHelper
 {
-    /**
-     * SettingsHelper constructor.
-     */
     function __construct()
     {
+
     }
 
-    public function get($key = '', $default = null)
+    public function get($key = '', $default = '')
     {
         if (strpos($key, '*')) {
             $key = str_replace('*', '%', $key);
@@ -30,9 +28,7 @@ class SettingsHelper
             return $result;
         }
 
-        $setting = Setting::whereCode($key);
-
-        $setting = $setting->first();
+        $setting = Setting::whereCode($key)->first();
 
         if ($setting) {
             return $setting->value;
@@ -51,5 +47,17 @@ class SettingsHelper
         }
 
         return (Setting::whereCode($key)->count() > 0);
+    }
+
+    public function set($key, $value)
+    {
+        $setting = Setting::where('code', $key)->first();
+        if ($setting) {
+            $setting->value = $value;
+            $setting->save();
+            return true;
+        }
+
+        return false;
     }
 }
